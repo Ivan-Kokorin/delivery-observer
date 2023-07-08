@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+option java_multiple_files=true;
+option java_package="com.delivery.grpc";
+package com.delivery.grpc;
+
+message PositionAndSpeedRequest {
+  int64 id = 1;
+}
+
+message PositionAndSpeedResponse {
+  double latitude = 1;
+  double longitude = 2;
+  int32 speed = 3;
+  string nameDriver = 4;
+}
+
+message TemperatureRequest {
+  int64 id = 1;
+}
+
+message TemperatureResponse {
+  int32 temperature = 1;
+  string unitOfMeasurement = 2;
+}
+
+service Service {
+  rpc getPositionAndPosition(PositionAndSpeedRequest) returns (stream PositionAndSpeedResponse);
+  rpc getWeather(TemperatureRequest) returns (stream TemperatureResponse);
+}
