@@ -24,7 +24,7 @@ message TemperatureResponse {
   string unitOfMeasurement = 2;
 }
 
-service Service {
-  rpc getPositionAndPosition(PositionAndSpeedRequest) returns (stream PositionAndSpeedResponse);
-  rpc getWeather(TemperatureRequest) returns (stream TemperatureResponse);
+service DeliveryService {
+  rpc positionAndSpeed(PositionAndSpeedRequest) returns (stream PositionAndSpeedResponse);
+  rpc weather(TemperatureRequest) returns (stream TemperatureResponse);
 }
