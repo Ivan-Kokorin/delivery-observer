@@ -14,19 +14,6 @@ import java.util.Iterator;
 public class DataServerApplication {
 
 	public static void main(String[] args) {
-		ManagedChannel channel = ManagedChannelBuilder.forTarget("localhost:8080")
-				.usePlaintext()
-				.build();
-		DeliveryServiceGrpc.DeliveryServiceBlockingStub stub = DeliveryServiceGrpc.newBlockingStub(channel);
-		PositionAndSpeedRequest request = PositionAndSpeedRequest
-				.newBuilder()
-				.setId(12345)
-				.build();
-		Iterator<PositionAndSpeedResponse> response = stub.positionAndSpeed(request);
-		while (response.hasNext())
-			System.out.println(response.next());
-
-		channel.shutdownNow();
 		SpringApplication.run(DataServerApplication.class, args);
 	}
 
